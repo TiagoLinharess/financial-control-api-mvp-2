@@ -21,6 +21,9 @@ class RequestPutSchema(BaseModel):
     name: str
     value: float
 
+class RequestGetSchema(BaseModel):
+    user_id: str
+
 class DefaultRequestSchema:
 
     # Inicializa request
