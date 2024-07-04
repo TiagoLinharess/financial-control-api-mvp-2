@@ -84,6 +84,7 @@ def get_items(session: Session, month: Month, user_id: str) -> List[Item]:
 
 def remove_empty_years_and_months(years: List[Year]) -> List[Year]:
     for year in years[:]:
+        
         # Loop para deletar os meses se necessário
         for month in year.months[:]:
             if not month.items:
@@ -92,8 +93,7 @@ def remove_empty_years_and_months(years: List[Year]) -> List[Year]:
         # Loop para deletar os anos se necessário
         if not year.months:
             years.remove(year)
-    
-    print(years)
+
     return years
 
     
