@@ -29,13 +29,17 @@ class ItemRepository():
         if not self.is_valid(schema.type):
             raise ValueError("Item is not valid.")
 
-        self.__session.query(Item).filter(Item.id == schema.id).update(
+        query = self.__session.query(Item).filter(Item.id == schema.id)
+        rows_updated = query.update(
             {
                 "name": schema.name,
                 "type": schema.type,
                 "value": schema.value
             }
         )
+
+        if rows_updated == 0:
+            raise ValueError("No item found with the given id.")
 
     # Método delete do repositório
     def delete(self, item_id: int) -> bool:

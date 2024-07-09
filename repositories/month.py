@@ -11,7 +11,6 @@ class MonthRepository():
 
     # Método create do repositório
     def create(self, month_string: str, year: Year) -> Month:
-        print(1)
         existent_month = self.exist_month(month_string, year)
 
         if not self.is_valid(month_string):
